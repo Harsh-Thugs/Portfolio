@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- AOS CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Harsh Chavan | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #141e30, #243b55);
+            color: #fff;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+        }
+
+        header h1 {
+            font-size: 1.8em;
+            color: #fdd835;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            color: #f0f0f0;
+            text-decoration: none;
+            position: relative;
+            padding: 5px;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: #fdd835;
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #fdd835;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            height: 100vh;
+            background: linear-gradient(-45deg, #1e3c72, #2a5298, #ff512f, #dd2476);
+            background-size: 400% 400%;
+            animation: gradientMove 15s ease infinite;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+        }
+
+        .hero-content span {
+            font-size: 2.5em;
+            color: #fff;
+            max-width: 90%;
+            line-height: 1.3;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #fdd835;
+        }
+
+        .about p,
+        .contact p {
+            max-width: 700px;
+            margin: 0 auto 20px auto;
+            font-size: 1.1em;
+            color: #ccc;
+        }
+
+        .about img {
+            max-width: 200px;
+            border-radius: 50%;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+            margin-top: 20px;
+        }
+
+        .skills ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            padding: 0;
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .skills li {
+            background: #2e3b4e;
+            padding: 10px 20px;
+            border-radius: 8px;
+            color: #fdd835;
+            font-weight: 500;
+        }
+
+        .projects-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .project {
+            background: #2e3b4e;
+            padding: 20px;
+            border-radius: 12px;
+            width: 280px;
+            text-align: left;
+            color: #fff;
+            transition: transform 0.3s ease;
+        }
+
+        .project:hover {
+            transform: scale(1.05);
+        }
+
+        .project h3 {
+            color: #fdd835;
+            margin-bottom: 10px;
+        }
+
+        .project p {
+            font-size: 0.95em;
+            color: #ccc;
+        }
+
+        .contact a {
+            display: inline-block;
+            margin-top: 15px;
+            background: #fdd835;
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .contact a:hover {
+            background: #ffe75a;
+        }
+
+        footer {
+            background: #111;
+            text-align: center;
+            padding: 20px;
+            color: #aaa;
+            font-size: 0.9em;
+            margin-top: 50px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes gradientMove {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 10px;
+            }
+
+            .hero-content span {
+                font-size: 1.6em;
+            }
+
+            .hero-content img {
+                width: 120px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header data-aos="fade-down">
+        <h1>Harsh Chavan</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" data-aos="fade-in">
+        <div class="hero-content">
+            <img src="C:\Users\Harsh\Downloads\profileeee.jpg" alt="Harsh Chavan Profile Picture" />
+            <span>Hi, I'm Harsh — a Developer, Designer, and Dreamer.</span>
+        </div>
+    </section>
+
+    <section class="section about" id="about" data-aos="fade-up">
+        <h2>About Me</h2>
+        <p data-aos="fade-right" data-aos-delay="200">
+            I’m a passionate full-stack developer from India who loves crafting clean, creative, and user-friendly web
+            experiences. This portfolio is a glimpse into my learning and creative journey.
+        </p>
+        <img src="C:\Users\Harsh\Downloads\Harsh.jpg" alt="Harsh Chavan" data-aos="zoom-in" data-aos-delay="400">
+    </section>
+
+    <section class="section skills" id="skills" data-aos="fade-up">
+        <h2>Skills</h2>
+        <ul>
+            <li data-aos="flip-left">HTML</li>
+            <li data-aos="flip-left" data-aos-delay="100">CSS</li>
+            <li data-aos="flip-left" data-aos-delay="200">JavaScript</li>
+            <li data-aos="flip-left" data-aos-delay="300">React.js</li>
+            <li data-aos="flip-left" data-aos-delay="400">Node.js</li>
+            <li data-aos="flip-left" data-aos-delay="500">MongoDB</li>
+            <li data-aos="flip-left" data-aos-delay="600">Python</li>
+            <li data-aos="flip-left" data-aos-delay="700">Git & GitHub</li>
+        </ul>
+    </section>
+
+    <section class="section projects" id="projects" data-aos="fade-up">
+        <h2>Projects</h2>
+        <div class="projects-container">
+            <div class="project" data-aos="zoom-in">
+                <h3>Portfolio Website</h3>
+                <p>My personal site to showcase projects, skills, and contact info. Built with HTML, CSS, and
+                    JavaScript.</p>
+            </div>
+            <div class="project" data-aos="zoom-in" data-aos-delay="200">
+                <h3>To-Do App</h3>
+                <p>A responsive to-do list built using React with real-time task updates and local storage support.</p>
+            </div>
+            <div class="project" data-aos="zoom-in" data-aos-delay="400">
+                <h3>Weather Finder</h3>
+                <p>A weather app using OpenWeather API and geolocation for live city-based weather updates.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section contact" id="contact" data-aos="fade-up">
+        <h2>Contact Me</h2>
+        <p data-aos="fade-right" data-aos-delay="200">Have a project in mind or want to collaborate? Let's connect!</p>
+        <a href="mailto:harshchavan5490@gmail.com" data-aos="zoom-in" data-aos-delay="400">📧 harshchavan5490@gmail.com
+            - 9224357029</a>
+    </section>
+
+    <footer data-aos="fade-up">
+        &copy; 2025 Harsh Chavan. All rights reserved.
+    </footer>
+
+    <!-- AOS JS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>
