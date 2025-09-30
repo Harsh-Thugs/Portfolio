@@ -1,3 +1,3 @@
 # Portfolio
 
-[Link](https://harsh-thugs.github.io/Portfolio/home.html)
+[Link](https://harsh-thugs.github.io/Portfolio/)
